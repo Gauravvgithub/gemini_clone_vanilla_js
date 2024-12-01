@@ -1,3 +1,3 @@
-Today's Project is making Gemini Clone with HTML5, CSS3, Vanilla JavaScript
+Today's Project is making Gemini Clone with HTML5, CSS3, Vanilla JavaScript.
 
 -----------THANK YOU------------
