@@ -121,13 +121,17 @@ const showLoadingAnimation = () => {
 
 
 // Copy message text to the clipboard
-const copyMessage = (copyIcon) =>{
-    const messageText = copyIcon.parentElement.querySelector(".text").innerHTML;
-
-    navigator.clipboard.writeText(messageText);
-    copyIcon.innerHTML = "done"; //Show tick icon
-
-    setTimeout(()=> copyIcon.innerHTML = "content_copy", 1000); //Revert icon after 1 second
+const copyMessage = (copyIcon) => {
+    const messageText = copyIcon.parentElement.querySelector(".text").textContent;
+  
+    navigator.clipboard.writeText(messageText)
+      .then(() => {
+        copyIcon.innerHTML = "done"; // Show tick icon
+        setTimeout(() => copyIcon.innerHTML = "content_copy", 1000); // Revert icon after 1 second
+      })
+      .catch(err => {
+        console.error('Error in copying text:', err);
+      });
 }
 
 // Handle sending outgoing chats messages
