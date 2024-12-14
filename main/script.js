@@ -11,8 +11,7 @@ let isResponsesGenerating = false;
 
 
 //API configuration
-const GEMINI_API_KEY = "AIzaSyCAqYNAmK77GNzGqq4yKOYOm4Lu5Jz7RlU";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
 
 
 const loadLocalstorageData = () => {
@@ -82,7 +81,7 @@ const generateAPIResponses =async(incomingMessageDiv) =>{
         if(!response.ok) throw new Error(data.error.message);
         
         //Get the API response text and remove asterisks from it
-        const apiResponse = data?.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*\*/g,'$1');
+        const apiResponse = data?.candidates[0].content.parts[0].text.replace(/\*/g, '');
         showTypingEffect(apiResponse, textElement, incomingMessageDiv);
 
     }catch(error){
