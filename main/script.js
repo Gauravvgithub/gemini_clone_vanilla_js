@@ -14,7 +14,7 @@ let isResponsesGenerating = false;
 
 
 
-const loadLocalstorageData = () => {
+function loadLocalstorageData() {
     const savedChats = localStorage.getItem("savedChats");
     const isLightMode = (localStorage.getItem("themecolor") === "light_mode");
 
